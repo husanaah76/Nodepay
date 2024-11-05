@@ -19,14 +19,14 @@ ctk.set_default_color_theme("dark-blue")
 class BotGUI:
     def __init__(self, root):
         self.root = root
-        self.root.title("NodePay Bot")
+        self.root.title("NodePay Bot 汉化作者雪糕战神推特用户@Hy78516012")
         self.root.geometry("900x700")
         # self.root.resizable(True, True)
         try:
             favicon = ImageTk.PhotoImage(Image.open("core/static/faviconV2.png"))
             self.root.iconphoto(True, favicon)
         except Exception as e:
-            logger.error(f"Failed to load favicon: {e}")
+            logger.error(f"无法加载图标: {e}")
         self.config = configparser.ConfigParser()
         self.load_settings()
         self.threads_entry = ctk.CTkEntry(self.root)
@@ -45,15 +45,15 @@ class BotGUI:
         self.main_frame = ctk.CTkFrame(self.root, fg_color="#F1F3FF")
         self.main_frame.pack(padx=20, pady=20, fill="both", expand=True)
 
-        # Header frame
+        # 头部框架
         self.header_frame = ctk.CTkFrame(self.main_frame, fg_color="#F1F3FF")
         self.header_frame.grid(row=0, column=0, sticky="ew", pady=(0, 20))
         self.header_frame.columnconfigure(0, weight=1)
         self.header_frame.columnconfigure(1, weight=0)
         self.header_frame.columnconfigure(2, weight=0)
-        self.header_frame.columnconfigure(3, weight=0)  # Add this line for the new column
+        self.header_frame.columnconfigure(3, weight=0)  # 为新列添加此行
 
-        # Logo and title
+        # Logo 和标题
         self.logo_frame = ctk.CTkFrame(self.header_frame, fg_color="#F1F3FF")
         self.logo_frame.grid(row=0, column=0, sticky="w")
 
@@ -62,7 +62,7 @@ class BotGUI:
             self.logo_label = ctk.CTkLabel(self.logo_frame, image=self.logo_image, text="")
             self.logo_label.pack(side="left", padx=(0, 10))
         except Exception as e:
-            logger.error(f"Failed to load logo: {e}")
+            logger.error(f"无法加载 logo: {e}")
 
         self.nodepay_label = ctk.CTkLabel(
             self.logo_frame,
@@ -72,7 +72,7 @@ class BotGUI:
         )
         self.nodepay_label.pack(side="left")
 
-        # Watermark buttons
+        # 水印按钮
         button_style = {
             "fg_color": "#593FDE",
             "hover_color": "#452CC6",
@@ -85,51 +85,51 @@ class BotGUI:
 
         self.instructions_button = ctk.CTkButton(
             self.header_frame,
-            text="Instructions",
-            command=lambda: self.open_link("https://teletype.in/@web3enjoyer/nodepay_plus"),
+            text="我的推特主页",
+            command=lambda: self.open_link("https://x.com/Hy78516012"),
             **button_style
         )
         self.instructions_button.grid(row=0, column=1, padx=(0, 10), sticky="e")
 
         self.web3_products_button = ctk.CTkButton(
             self.header_frame,
-            text="Web3 products",
-            command=lambda: self.open_link("https://gemups.com/"),
+            text="原作者Github",
+            command=lambda: self.open_link("https://github.com/MsLolita/Nodepay_plus"),
             **button_style
         )
         self.web3_products_button.grid(row=0, column=2, padx=(0, 10), sticky="e")
 
         self.enjoyer_button = ctk.CTkButton(
             self.header_frame,
-            text="Grass, Dawn, Gradient and more ...",
-            command=lambda: self.open_link("https://t.me/web3_enjoyer_club"),
+            text="汉化作者Github",
+            command=lambda: self.open_link("https://github.com/GzGod/"),
             **button_style
         )
         self.enjoyer_button.grid(row=0, column=3, padx=(0, 10), sticky="e")
 
-        # Main content frame
+        # 主内容框架
         self.content_frame = ctk.CTkFrame(self.main_frame, fg_color="#FFFFFF", corner_radius=20)
         self.content_frame.grid(row=1, column=0, sticky="nsew", padx=20, pady=20)
         self.main_frame.rowconfigure(1, weight=1)
         self.main_frame.columnconfigure(0, weight=1)
 
-        # File selection frame
+        # 文件选择框架
         self.file_frame = ctk.CTkFrame(self.content_frame, fg_color="#FFFFFF")
         self.file_frame.pack(fill="x", padx=20, pady=(20, 10))
 
-        self.accounts_label, self.accounts_button = self.create_file_selection("Accounts File:", self.load_accounts_file)
-        self.proxies_label, self.proxies_button = self.create_file_selection("Proxies File:", self.load_proxies_file)
+        self.accounts_label, self.accounts_button = self.create_file_selection("账户文件:", self.load_accounts_file)
+        self.proxies_label, self.proxies_button = self.create_file_selection("代理文件:", self.load_proxies_file)
 
-        # Input frame
+        # 输入框架
         self.input_frame = ctk.CTkFrame(self.content_frame, fg_color="#FFFFFF")
         self.input_frame.pack(fill="x", padx=20, pady=10)
 
-        # Create a grid layout for input fields
+        # 创建输入字段的网格布局
         self.input_frame.columnconfigure(1, weight=1)
         self.input_frame.columnconfigure(3, weight=1)
 
-        # Captcha and API Key on the same line
-        self.captcha_label, self.captcha_menu = self.create_input_field("Captcha:", ctk.CTkOptionMenu(
+        # 验证码和 API Key 在同一行
+        self.captcha_label, self.captcha_menu = self.create_input_field("验证码:", ctk.CTkOptionMenu(
             self.input_frame,
             variable=self.captcha_service_var,
             values=["capmonster"],  # "2captcha", "anticaptcha", "capsolver",
@@ -143,37 +143,37 @@ class BotGUI:
         self.captcha_api_label.grid(row=0, column=2, sticky="w", pady=5, padx=(0, 5))
         self.captcha_api_entry.grid(row=0, column=3, sticky="ew", pady=5)
 
-        # Threads and hidden Referral Code toggle on the same line
-        self.threads_label, self.threads_entry = self.create_input_field("Threads:", ctk.CTkEntry(self.input_frame, width=60))
+        # 线程和隐藏推荐码切换按钮在同一行
+        self.threads_label, self.threads_entry = self.create_input_field("线程:", ctk.CTkEntry(self.input_frame, width=60))
         self.threads_label.grid(row=1, column=0, sticky="w", pady=5)
         self.threads_entry.grid(row=1, column=1, sticky="w", pady=5)
 
         self.toggle_ref_code_button = ctk.CTkButton(
             self.input_frame,
-            text="⋮",  # Vertical ellipsis character
+            text="⋮",  # 垂直省略号字符
             command=self.toggle_ref_code_visibility,
             width=5,
             height=5,
             corner_radius=25,
-            fg_color="#FFFFFF",  # Changed to a very light color
-            text_color="#A0A0A0",  # Changed to a light gray color
+            fg_color="#FFFFFF",  # 改为非常浅的颜色
+            text_color="#A0A0A0",  # 改为浅灰色
             hover_color="#E9E4FF",
             font=("Helvetica", 14, "bold")
         )
         self.toggle_ref_code_button.grid(row=1, column=1, sticky="e", pady=5, padx=(0, 5))
 
-        self.ref_code_label, self.ref_code_entry = self.create_input_field("Referral Code:", ctk.CTkEntry(self.input_frame, width=100))
+        self.ref_code_label, self.ref_code_entry = self.create_input_field("推荐码:", ctk.CTkEntry(self.input_frame, width=100))
         self.ref_code_label.grid(row=1, column=2, sticky="w", pady=5, padx=(0, 10))
         self.ref_code_entry.grid(row=1, column=3, sticky="ew", pady=5)
 
-        # Hide referral code input initially
+        # 初始隐藏推荐码输入
         self.ref_code_label.grid_remove()
         self.ref_code_entry.grid_remove()
 
-        # Add delay inputs after the threads input
+        # 在线程输入后添加延迟输入
         self.delay_label = ctk.CTkLabel(
             self.input_frame,
-            text="Delay (seconds):",
+            text="延迟（秒）:",
             font=("Helvetica", 14),
             fg_color="#FFFFFF",
             text_color="#2E3A59"
@@ -185,7 +185,7 @@ class BotGUI:
 
         self.delay_to_label = ctk.CTkLabel(
             self.input_frame,
-            text="to",
+            text="到",
             font=("Helvetica", 14),
             fg_color="#FFFFFF",
             text_color="#2E3A59"
@@ -222,7 +222,7 @@ class BotGUI:
 
         self.register_button = ctk.CTkButton(
             self.buttons_frame,
-            text="Register Accounts",
+            text="注册账户",
             command=self.register_accounts,
             **main_button_style
         )
@@ -230,7 +230,7 @@ class BotGUI:
 
         self.mining_button = ctk.CTkButton(
             self.buttons_frame,
-            text="Start Farm",
+            text="开始工作",
             command=self.start_mining,
             **main_button_style
         )
@@ -238,7 +238,7 @@ class BotGUI:
 
         self.stop_button = ctk.CTkButton(
             self.buttons_frame,
-            text="Stop Bot",
+            text="停止工作",
             command=self.stop_bot,
             **main_button_style
         )
@@ -247,7 +247,7 @@ class BotGUI:
         # Add View Earnings button with different style
         self.view_earnings_button = ctk.CTkButton(
             self.buttons_frame,
-            text="View Earnings",
+            text="查看收益",
             command=self.view_earnings,
             **earnings_button_style
         )
@@ -289,7 +289,7 @@ class BotGUI:
 
         button = ctk.CTkButton(
             frame,
-            text="Select File",
+            text="选择文件",
             command=command,
             fg_color="#E9E4FF",
             text_color="#2E3A59",
@@ -502,24 +502,24 @@ class BotGUI:
 
     def validate_inputs(self):
         if not getattr(self, 'accounts_path', ''):
-            logger.error("Error: Accounts file not selected!")
-            messagebox.showerror("Error", "Accounts file not selected!")
+            logger.error("Error: 没有找到账户文件!")
+            messagebox.showerror("Error", "没有找到账户文件!")
             return False
         if not getattr(self, 'proxies_path', ''):
-            logger.error("Error: Proxies file not selected!")
-            messagebox.showerror("Error", "Proxies file not selected!")
+            logger.error("Error: 没有找到代理文件!")
+            messagebox.showerror("Error", "没有找到代理文件!")
             return False
         if not self.captcha_api_entry.get():
-            logger.error("Error: Captcha API key is missing!")
-            messagebox.showerror("Error", "Captcha API key is missing!")
+            logger.error("Error: Captcha API key 错误!")
+            messagebox.showerror("Error", "Captcha API key 错误!")
             return False
         try:
             threads = int(self.threads_entry.get())
             if threads <= 0:
                 raise ValueError
         except ValueError:
-            logger.error("Error: Number of threads must be a positive integer!")
-            messagebox.showerror("Error", "Number of threads must be a positive integer!")
+            logger.error("Error: 线程数必须是正整数!")
+            messagebox.showerror("Error", "线程数必须是正整数!")
             return False
         try:
             delay_min = float(self.delay_min_entry.get())
@@ -528,7 +528,7 @@ class BotGUI:
                 raise ValueError
         except ValueError:
             logger.error("Error: Invalid delay range!")
-            messagebox.showerror("Error", "Invalid delay range! Please enter valid positive numbers, with min <= max.")
+            messagebox.showerror("Error", "延迟范围无效！请输入有效的正数, with min <= max.")
             return False
         return True
 
@@ -667,10 +667,10 @@ class BotGUI:
             self.earnings_window.update()
 
         except FileNotFoundError:
-            messagebox.showinfo("No Data", "No earnings data available yet.")
+            messagebox.showinfo("No Data", "目前还没有可用的收益数据.")
         except Exception as e:
             logger.error(f"Error viewing earnings: {e}")
-            messagebox.showerror("Error", f"Failed to load earnings data: {e}")
+            messagebox.showerror("Error", f"无法加载收益数据: {e}")
 
 if __name__ == "__main__":
     root = ctk.CTk()
