@@ -1,51 +1,42 @@
-# Nodepay Auto Reger&Farm 🔹
+# Nodepay 自动注册&工作 🔹
 
+### 这个机器人是做什么的？
+   - 创建账户
+   - 自动挖矿
+   - 检查积分
 
-Discover the latest `<crypto/>` moves in my Telegram Channel:
+> 你可以放入尽可能多的代理
 
-[![My Channel 🥰](https://img.shields.io/badge/Web3_Enjoyer_|_Subscribe_🥰-0A66C2?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/web3_enjoyer_club) 
+## 快速开始 📚
+   1. 在 Windows 上安装库，点击 `INSTALL.bat`（或在控制台中运行：`pip install -r requirements.txt`）。
+   2. 启动机器人，使用 `START.bat`（或在控制台中运行：`python main.py`）。
 
-Cheapest [proxies and servers](https://teletype.in/@web3enjoyer/4a2G9NuHssy) which fits for bot.
+### 选项 📧
 
-![image](https://img4.teletype.in/files/3b/88/3b886c4d-5b54-4463-bddd-3ce86342d666.png)
-### Also can be useful: [Grass Farmer](https://github.com/MsLolita/grass)
+1. 创建账户：
+ - 提供 API 密钥。由于有验证码，你需要一个验证码解决服务 - [AntiCaptcha](https://getcaptchasolution.com/efxhkimbkj)
+ - 提供电子邮件、密码和代理来注册账户，如下所示！
 
+  ![图片](https://img3.teletype.in/files/63/b4/63b417ed-d9fb-4aa5-b8a4-1b96e46a57f7.png)
 
-### What is bot for?
-   - Create Accounts
-   - Farm Points
-   - Check Points
+2. 积分挖矿：
+ - 提供电子邮件、密码和代理来注册账户，如下所示！
 
-> You can put as many proxies as u can
+### 配置 📧
 
+1. 账户设置 🔒
 
-## Quick Start 📚
-   1. To install libraries on Windows click on `INSTALL.bat` (or in console: `pip install -r requirements.txt`).
-   2. To start bot use `START.bat` (or in console: `python main.py`).
+   在 `accounts.txt` 中按照格式 email:password 放入账户（例如：cool_aster@gmail.com:My_password123!）
+   对于密码：大写字母、小写字母、数字、特殊字符，且至少8个字符
 
-### Options 📧
+   ![图片](https://img3.teletype.in/files/63/b4/63b417ed-d9fb-4aa5-b8a4-1b96e46a57f7.png)
 
-1. CREATE ACCOUNTS:
- - Throw the api key. Since there is a captcha there, you need a service for solving captchas - [AntiCaptcha](http://getcaptchasolution.com/t8yfysqmh3) or [Twocaptcha](https://2captcha.com/?from=12939391).
- - Provide emails and passwords and proxies to register accounts as below!
+2. 代理设置 🔒
 
-  ![image](https://img3.teletype.in/files/63/b4/63b417ed-d9fb-4aa5-b8a4-1b96e46a57f7.png)
+   在 `data/proxies.txt` 中配置你的代理，格式为 *ANY*（socks, http/s, ...）🌐
 
-2. FARM POINTS:
- - Provide emails and passwords and proxies to register accounts as shown below!
+   ![代理配置](https://github.com/MsLolita/VeloData/assets/58307006/a2c95484-52b6-497a-b89e-73b89d953d8c)
 
+---
 
-### Configuration 📧
-
-1. Accounts Setup 🔒
-
-   Put in `accounts.txt` accounts in format email:password (cool_aster@gmail.com:My_password123!) 
-   For password: Big letter, small letter, number, special character and at least 8 symbols
-   
-   ![image](https://img3.teletype.in/files/63/b4/63b417ed-d9fb-4aa5-b8a4-1b96e46a57f7.png)
-
-2. Proxy Setup 🔒
-
-   Configure your proxies with the *ANY* (socks, http/s, ...) format in `data/proxies.txt` 🌐
-
-   ![Proxy Configuration](https://github.com/MsLolita/VeloData/assets/58307006/a2c95484-52b6-497a-b89e-73b89d953d8c)
+希望这些信息对你有所帮助！如果你有任何其他问题或需要进一步的帮助，请随时告知。
