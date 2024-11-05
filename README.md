@@ -14,7 +14,7 @@
 ### 选项 📧
 
 1. 创建账户：
- - 提供 API 密钥。由于有验证码，你需要一个验证码解决服务 - [AntiCaptcha](https://getcaptchasolution.com/efxhkimbkj)
+ - 提供 API 密钥。由于有验证码，你需要一个验证码解决服务 - [AntiCaptcha](https://getcaptchasolution.com/efxhkimbkj) 或[2Captcha](https://2captcha.com/?from=24356724) 
  - 提供电子邮件、密码和代理来注册账户，如下所示！
 
   ![图片](https://img3.teletype.in/files/63/b4/63b417ed-d9fb-4aa5-b8a4-1b96e46a57f7.png)
